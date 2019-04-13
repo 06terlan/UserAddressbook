@@ -1,0 +1,48 @@
+   Here is a quick exercise: Given the two tables below, produce the following:
+
+Create the two proper models in Laravel as well as controllers which shall do as follow:
+
++Be able to look up any specific user in the system ( Users Table );
++Be able to print all the entries in the address book from an specific user ( addressBook );
++Be able to find any entry in the addressBook that are duplicate and belong to different users. ( );
+
+Deliverables shall be only in Laravel PHP, create the corresponding model(class) , controller and view. Views do not required styles . 
+
+--Regards, 
+Let me know if you have any questions.
+Thanks.
+
+
+CREATE TABLE `addressbook` (
+  `Aid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `owner_uid` int(10) DEFAULT NULL,
+  `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: Unique user ID.',
+  `source` int(1) DEFAULT '0',
+  `name` varchar(60) NOT NULL DEFAULT '' COMMENT 'Unique user name.',
+  `LastName` varchar(45) DEFAULT NULL,
+  `mail` varchar(254) DEFAULT '' COMMENT 'User’s e-mail address.',
+  `phone` varchar(255) NOT NULL DEFAULT '' COMMENT 'User’s default theme.',
+  `Department` varchar(200) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0', // Whether contact is active or not.
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` varchar(45) DEFAULT NULL,
+  `picture` text,
+  PRIMARY KEY (`Aid`),
+  UNIQUE KEY `unique_contact` (`owner_uid`,`mail`),
+  KEY `created` (`created_at`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+Create table 'users'(   Parent Table 
+  `uid` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Primary Key: Unique user ID.',
+  `source` int(1) DEFAULT '0',
+  `name` varchar(60) NOT NULL DEFAULT '' COMMENT 'Unique user name.',
+  `LastName` varchar(45) DEFAULT NULL,
+  `mail` varchar(254) DEFAULT '' COMMENT 'User’s e-mail address.',
+  `status` tinyint(4) NOT NULL DEFAULT '0', // Whether contact is active or not.
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` varchar(45) DEFAULT NULL,
+  //PRIMARY KEY (`Aid`),
+  //UNIQUE KEY `unique_contact` (`owner_uid`,`mail`),
+  KEY `created` (`created_at`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+

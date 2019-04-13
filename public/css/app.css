@@ -1,0 +1,13 @@
+body{
+	padding: 0px;
+	margin: 0px;
+}
+.nav.nav-pills{
+	margin: 20px;
+}
+.container{
+	margin-top: 20px;
+}
+.paination ul{
+	display: inline-flex;
+}
